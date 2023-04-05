@@ -18,7 +18,7 @@ late  WebViewPlusController controller;
                 color: Colors.transparent,
                 child: WebViewPlus(
                       javascriptMode: JavascriptMode.unrestricted,
-                      initialUrl: 'lib/assets/index.html',
+                      initialUrl: 'assets/index.html',
                       onWebViewCreated: (controller) {
                       this.controller = controller;
                       },
