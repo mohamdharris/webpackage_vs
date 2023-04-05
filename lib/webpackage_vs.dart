@@ -11,7 +11,7 @@ late  WebViewPlusController controller;
   @override
   Widget build(BuildContext context) {
   Future<void> _onLoadFlutterAssetExample() {
-    return controller.loadString('assets/index.html');
+    return controller.loadUrl('assets/index.html');
   }
     return Column(
               children: [
