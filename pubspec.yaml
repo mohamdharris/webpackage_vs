@@ -23,9 +23,13 @@ dev_dependencies:
 # The following section is specific to Flutter packages.
 flutter:
 
-  # To add assets to your package, add an assets section, like this:
+  uses-material-design: true
   assets:
-    - assets/
+    - assets/bg.jpg
+    - assets/catalog.json
+    - assets/index.html
+    - assets/scripts.js
+    - assets/style.css
   #   - images/a_dot_ham.jpeg
   #
   # For details regarding assets in packages, see
