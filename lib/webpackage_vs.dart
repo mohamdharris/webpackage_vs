@@ -5,10 +5,14 @@ import 'package:webview_flutter_plus/webview_flutter_plus.dart';
 class WebViewView extends StatelessWidget {
    WebViewView({Key? key}) : super(key: key);
 late  WebViewPlusController controller;
+ 
 
 ///provide the Controller pLease
   @override
   Widget build(BuildContext context) {
+  Future<void> _onLoadFlutterAssetExample() {
+    return controller.loadString('assets/index.html');
+  }
     return Column(
               children: [
                 Container(
