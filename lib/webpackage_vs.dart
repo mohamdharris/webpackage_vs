@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'dart:convert';
 import 'package:webview_flutter_plus/webview_flutter_plus.dart';
+import 'package:flutter/services.dart';
 
 class WebViewView extends StatelessWidget {
    WebViewView({Key? key}) : super(key: key);
@@ -10,9 +11,15 @@ late  WebViewPlusController controller;
 ///provide the Controller pLease
   @override
   Widget build(BuildContext context) {
-  Future<void> _onLoadFlutterAssetExample() {
-    return controller.loadUrl('assets/index.html');
-  }
+Future<void> loadAsset() async {
+  final assetData = await rootBundle.load('assets/index.html');
+  final assetData1 = await rootBundle.load('assets/bg.jpg');
+  final assetData2 = await rootBundle.load('assets/catalog.json');
+  final assetData3 = await rootBundle.load('assets/scripts.js');
+  final assetData4 = await rootBundle.load('assets/style.css');
+   // Do something with the asset data
+print("asserts load");
+}
     return Column(
               children: [
                 Container(
