@@ -3,15 +3,21 @@ import 'dart:convert';
 import 'package:webview_flutter_plus/webview_flutter_plus.dart';
 import 'package:flutter/services.dart';
 
-class WebViewView extends StatelessWidget {
+class WebViewView extends StatefulWidget {
    WebViewView({Key? key}) : super(key: key);
-late  WebViewPlusController controller;
- 
 
-///provide the Controller pLease
   @override
-  Widget build(BuildContext context) {
-Future<void> loadAsset() async {
+  State<WebViewView> createState() => _WebViewViewState();
+}
+
+class _WebViewViewState extends State<WebViewView> {
+late  WebViewPlusController controller;
+
+@override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    Future<void> loadAsset() async {
   final assetData = await rootBundle.load('assets/index.html');
   final assetData1 = await rootBundle.load('assets/bg.jpg');
   final assetData2 = await rootBundle.load('assets/catalog.json');
@@ -20,6 +26,11 @@ Future<void> loadAsset() async {
    // Do something with the asset data
 print("asserts loading from load Asset");
 }
+  }
+///provide the Controller pLease
+  @override
+  Widget build(BuildContext context) {
+
     return Column(
               children: [
                 Container(
