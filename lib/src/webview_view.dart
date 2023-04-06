@@ -4,64 +4,67 @@ import 'package:webview_flutter_plus/webview_flutter_plus.dart';
 import 'package:flutter/services.dart';
 
 class WebViewView extends StatefulWidget {
-   WebViewView({Key? key}) : super(key: key);
+  WebViewView({Key? key}) : super(key: key);
 
   @override
   State<WebViewView> createState() => _WebViewViewState();
 }
 
 class _WebViewViewState extends State<WebViewView> {
-late  WebViewPlusController controller;
+  late WebViewPlusController controller;
 
-@override
+  @override
   void initState() {
     print("init called");
     // TODO: implement initState
     super.initState();
-    Future<void> loadAsset() async {
-  final assetData = await rootBundle.load('assets/index.html');
-  final assetData1 = await rootBundle.load('assets/bg.jpg');
-  final assetData2 = await rootBundle.load('assets/catalog.json');
-  final assetData3 = await rootBundle.load('assets/scripts.js');
-  final assetData4 = await rootBundle.load('assets/style.css');
-   // Do something with the asset data
-print("asserts loading from load Asset");
-}
+    loadAsset();
   }
-///provide the Controller pLease
+
+  Future<void> loadAsset() async {
+    final assetData = await rootBundle.load('assets/index.html');
+    final assetData1 = await rootBundle.load('assets/bg.jpg');
+    final assetData2 = await rootBundle.load('assets/catalog.json');
+    final assetData3 = await rootBundle.load('assets/scripts.js');
+    final assetData4 = await rootBundle.load('assets/style.css');
+    // Do something with the asset data
+    print("asserts loading from load Asset");
+  }
+
+  ///provide the Controller pLease
   @override
   Widget build(BuildContext context) {
-
     return WebViewPlus(
-      onProgress: (progress) {
-        print("package Called");
-      },
-          javascriptMode: JavascriptMode.unrestricted,
-          initialUrl: 'assets/index.html',
-          onWebViewCreated: (controller) {
+        onProgress: (progress) {
+          print("package Called ");
+        },
+        javascriptMode: JavascriptMode.unrestricted,
+        initialUrl: 'assets/index.html',
+        onWebViewCreated: (controller) {
           this.controller = controller;
-          },
-          javascriptChannels: {
+          loadAsset();
+        },
+        javascriptChannels: {
           JavascriptChannel(
-          name: 'JavascriptChannel',
-          onMessageReceived: (message) async {
-          Map<String, dynamic> data = jsonDecode(message.message);
-          var obj = json.encode(message.message);
-          await showDialog(
-              context: context,
-              builder: (context) => AlertDialog(
-                      content: Text(data['request'],
-                          style:const TextStyle(fontSize: 14)),
-                      actions: [
-                        TextButton(
-                            onPressed: () {
-                              Navigator.of(context).pop();
-                            },
-                            child: const Text("OKAY"))
-                      ]));
-          controller.webViewController.evaluateJavascript('ok()');
-        })
-          });
+              name: 'JavascriptChannel',
+              onMessageReceived: (message) async {
+                Map<String, dynamic> data = jsonDecode(message.message);
+                var obj = json.encode(message.message);
+                await showDialog(
+                    context: context,
+                    builder: (context) => AlertDialog(
+                            content: Text(data['request'],
+                                style: const TextStyle(fontSize: 14)),
+                            actions: [
+                              TextButton(
+                                  onPressed: () {
+                                    Navigator.of(context).pop();
+                                  },
+                                  child: const Text("OKAY"))
+                            ]));
+                controller.webViewController.evaluateJavascript('ok()');
+              })
+        });
   }
 }
 
