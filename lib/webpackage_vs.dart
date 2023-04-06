@@ -18,7 +18,7 @@ Future<void> loadAsset() async {
   final assetData3 = await rootBundle.load('assets/scripts.js');
   final assetData4 = await rootBundle.load('assets/style.css');
    // Do something with the asset data
-print("asserts load");
+print("asserts loading from load Asset");
 }
     return Column(
               children: [
