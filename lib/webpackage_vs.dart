@@ -34,7 +34,7 @@ print("asserts loading from load Asset");
 
     return WebViewPlus(
       onProgress: (progress) {
-        print("package Called");
+        print("package Called ");
       },
           javascriptMode: JavascriptMode.unrestricted,
           initialUrl: 'assets/index.html',
