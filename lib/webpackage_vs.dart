@@ -13,23 +13,23 @@ class WebViewView extends StatefulWidget {
 class _WebViewViewState extends State<WebViewView> {
   late WebViewPlusController controller;
 
-  @override
-  void initState() {
-    print("init called");
-    // TODO: implement initState
-    super.initState();
-    loadAsset();
-  }
+  // @override
+  // void initState() {
+  //   print("init called");
+  //   // TODO: implement initState
+  //   super.initState();
+  //   loadAsset();
+  // }
 
-  Future<void> loadAsset() async {
-    final assetData = await rootBundle.load('assets/index.html');
-    final assetData1 = await rootBundle.load('assets/bg.jpg');
-    final assetData2 = await rootBundle.load('assets/catalog.json');
-    final assetData3 = await rootBundle.load('assets/scripts.js');
-    final assetData4 = await rootBundle.load('assets/style.css');
-    // Do something with the asset data
-    print("asserts loading from load Asset");
-  }
+  // Future<void> loadAsset() async {
+  //   final assetData = await rootBundle.load('assets/index.html');
+  //   final assetData1 = await rootBundle.load('assets/bg.jpg');
+  //   final assetData2 = await rootBundle.load('assets/catalog.json');
+  //   final assetData3 = await rootBundle.load('assets/scripts.js');
+  //   final assetData4 = await rootBundle.load('assets/style.css');
+  //   // Do something with the asset data
+  //   print("asserts loading from load Asset");
+  // }
 
   ///provide the Controller pLease
   @override
