@@ -39,7 +39,7 @@ class _WebViewViewState extends State<WebViewView> {
           print("package Called ");
         },
         javascriptMode: JavascriptMode.unrestricted,
-        initialUrl: 'http://ec2-34-217-173-110.us-west-2.compute.amazonaws.com/flutter/webview',
+        initialUrl: 'http://ec2-34-217-173-110.us-west-2.compute.amazonaws.com/flutter/webview1',
         onWebViewCreated: (controller) {
           this.controller = controller;
           // loadAsset();
